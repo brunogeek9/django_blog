@@ -12,5 +12,5 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.PROTECT)
     created_at = models.DateField(auto_now_add=True)
 
-    def __srt__(self):
-        return 'The post {} has your creation in {}'.format(self.title, self.created_at)
+    def __str__(self):
+        return self.title + " - Created at " + str(self.created_at)
