@@ -46,12 +46,11 @@
     </h3>
     {% for post in posts %}
         <div class="blog-post">
-            <h2 class="blog-post-title">{{ post.title }}</h2>
+            <h2 class="blog-post-title">
+                <a href="posts/{{post.pk}}"> {{ post.title }} </a>
+            </h2>
             <p class="blog-post-meta">{{ post.created_at|date:'d, M Y' }} <a href="#">{{ post.author.get_full_name }}</a></p>
-             <blockquote>
-            {% comment %} <p>{{ post.content }}</p> {% endcomment %}
-            </blockquote>
-            {{ post.sumary }}
+            {{ post.sumary|safe}}
         </div>
     {% endfor %}
       

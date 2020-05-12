@@ -8,3 +8,8 @@ def home(request):
     # for item in posts:
     #     print(item.content)
     return render(request, 'home.html', {'posts': posts})
+
+
+def post(request, post_id):
+    post = Post.objects.get(pk=post_id)
+    return render(request, 'post.html', {'post': post})
